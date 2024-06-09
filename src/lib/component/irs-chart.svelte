@@ -21,7 +21,7 @@
 	$: numLines = Array.from(
 		{ length: Math.max(firstAmounts.length, secondAmounts.length) },
 		(_, i) => i + 1
-	).map((i) => `${i}º Esc.`);
+	).map((i) => `${i}º E.`);
 
 	$: firstAnnualNetIncome = annualIncome * 0.89 - firstTotal;
 	$: secondAnnualNetIncome = annualIncome * 0.89 - secondTotal;
@@ -205,7 +205,7 @@
 	</div>
 
 	<div class="flex justify-center align-middle">
-		<h3 class="my-4">Comparação de imposto a pagar</h3>
+		<h3 class="my-4">Comparação de imposto  (por escalão)</h3>
 	</div>
 
 	<Chart {options} />
