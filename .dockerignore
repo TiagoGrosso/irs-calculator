@@ -1,0 +1,11 @@
+src/
+static/
+.svelte-kit
+.gitignore
+.prettierrc
+.prettierignore
+README.md
+vite.config.ts
+tsconfig.json
+svelte.config.js
+.github/
