@@ -161,7 +161,7 @@
 							</span>
 						</span>
 					</TableBodyCell>
-					<TableBodyCell class="px-1 md:px-3 text-center md:text-start">
+					<TableBodyCell class="px-1 text-center md:px-3 md:text-start">
 						{#if i !== 0}
 							<Button class="!p-2" on:click={() => removeRate(i)}
 								><TrashBinOutline class="h-6 w-6" /></Button

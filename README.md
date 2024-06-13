@@ -5,9 +5,9 @@
 
 ## EN
 
-A simple webapp to calculate your yearly income tax (in Portugal) and compare tax changes. It does not take into account your deductions, special regimes you might be included in or other sources of income. 
+A simple webapp to calculate your yearly income tax (in Portugal) and compare tax changes. It does not take into account your deductions, special regimes you might be included in or other sources of income.
 
-The idea of this app is to get a rough idea of how changes in the tax brackets can affect net income. 
+The idea of this app is to get a rough idea of how changes in the tax brackets can affect net income.
 
 ## PT
 

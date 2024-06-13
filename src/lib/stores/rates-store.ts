@@ -2,9 +2,8 @@ import { browser } from '$app/environment';
 import type { RateDataAndName } from '$lib/types/Rate';
 import { Rate } from '$lib/types/Rate';
 import type { SelectOptionType } from 'flowbite-svelte';
+import { persisted } from 'svelte-persisted-store';
 import { get, writable } from 'svelte/store';
-
-
 
 const irs2023: Rate[] = [
 	new Rate(0.145, 0, 7479),
@@ -61,17 +60,12 @@ const defaultTypeToRates: Map<string, Rate[]> = new Map([
 	['Proposta IRS Jovem', irsJovem]
 ]);
 
-export const userRates = writable(
-	browser ? (JSON.parse(localStorage.getItem('rates') ?? '[]') as RateDataAndName[]) : []
-);
+export const userRates = persisted('rates', [] as RateDataAndName[]);
 
-export const typeToRates = writable(defaultTypeToRates)
+export const typeToRates = writable(defaultTypeToRates);
 
 userRates.subscribe((value) => {
-	if (browser) {
-		localStorage.setItem('rates', JSON.stringify(value));
-		setRates(value);
-	}
+	setRates(value);
 });
 
 function setRates(ratesData: RateDataAndName[]) {
@@ -85,22 +79,22 @@ function setRates(ratesData: RateDataAndName[]) {
 		const rates = rateData.rates.map((rate) => new Rate(rate.taxRate, rate.from, rate.to));
 		updated.set(rateData.name, rates);
 	}
-	
-	typeToRates.set(updated)
+
+	typeToRates.set(updated);
 }
 
 export function addRate(rateData: RateDataAndName) {
-	userRates.update(cur => cur.concat(rateData))
+	userRates.update((cur) => cur.concat(rateData));
 }
 
-export function getAvailableRates(rates: Map<string, Rate[]>): SelectOptionType<string>[] {	
+export function getAvailableRates(rates: Map<string, Rate[]>): SelectOptionType<string>[] {
 	return Array.from(rates.keys()).map((key) => ({ value: key, name: key }));
 }
 
 export function canDeleteRate(name: string) {
-	return !defaultTypeToRates.has(name)
+	return !defaultTypeToRates.has(name);
 }
 
 export function deleteRate(name: string) {
-	userRates.update(cur => cur.filter(r => r.name !== name))
+	userRates.update((cur) => cur.filter((r) => r.name !== name));
 }

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { calcInput } from '$lib/stores/calc-input-store';
+	import { collectibleIncome } from '$lib/stores/derived-values-store';
 	import {
 		canDeleteRate,
 		deleteRate,
@@ -18,30 +20,26 @@
 	} from 'flowbite-svelte';
 	import { TrashBinOutline } from 'flowbite-svelte-icons';
 
-	export let collectibleIncome: number;
-	export let selectedValue: string;
-	let rates: Rate[];
-	let totalTax: number;
+	export let index: number;
 
-	$: {
-		if (selectedValue) {
-			rates = $typeToRates.get(selectedValue)!;
-			totalTax = sumTax(collectibleIncome, rates);
-		}
-	}
+	$: selectedValue = $calcInput.selected[index];
+
+	$: rates = $typeToRates.get(selectedValue)!;
+	$: totalTax = sumTax($collectibleIncome, rates);
 
 	function deleteSelectedRate() {
 		const availableRates = getAvailableRates($typeToRates);
 		const nextSelected =
 			availableRates[availableRates.map((r) => r.name).indexOf(selectedValue) - 1];
 		deleteRate(selectedValue);
-		selectedValue = nextSelected.name as string;
+		$calcInput.selected[index] = nextSelected.name as string;
 	}
 </script>
 
 <div class="bg mb-16 flex w-full flex-col gap-1 md:mb-6">
 	<div class="inline-flex">
-		<Select items={getAvailableRates($typeToRates)} bind:value={selectedValue}></Select>
+		<Select items={getAvailableRates($typeToRates)} bind:value={$calcInput.selected[index]}
+		></Select>
 		{#if canDeleteRate(selectedValue)}
 			<Button on:click={() => deleteSelectedRate()}><TrashBinOutline class="h-6 w-6" /></Button>
 		{/if}
@@ -58,7 +56,7 @@
 					<TableBodyRow>
 						<TableBodyCell>{rate.getIntervalString()}</TableBodyCell>
 						<TableBodyCell>{rate.getTaxString()}</TableBodyCell>
-						<TableBodyCell>{`${rate.getTaxAmount(collectibleIncome).toFixed(2)}€`}</TableBodyCell>
+						<TableBodyCell>{`${rate.getTaxAmount($collectibleIncome).toFixed(2)}€`}</TableBodyCell>
 					</TableBodyRow>
 				{/each}
 				<TableBodyRow>

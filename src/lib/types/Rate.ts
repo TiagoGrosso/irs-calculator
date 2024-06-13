@@ -1,4 +1,4 @@
-export type RateData = { taxRate: number; from: number; to?: number }
+export type RateData = { taxRate: number; from: number; to?: number };
 
 export type RateDataAndName = {
 	name: string;

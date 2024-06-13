@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Input } from 'flowbite-svelte';
-	import CreateRates from './create-rates.svelte';
 
-	export let annualIncome: number;
+	import CreateRates from './create-rates.svelte';
+	import { calcInput } from '$lib/stores/calc-input-store';
 </script>
 
 <div>
@@ -14,14 +14,14 @@
 			<p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
 				Introduz o teu salário bruto anual:
 			</p>
-			<div class="mt-2 flex flex-col gap-3 items-center justify-center gap-x-6">
+			<div class="mt-2 flex flex-col items-center justify-center gap-3 gap-x-6">
 				<form>
 					<Input
 						class="text-center"
 						type="text"
 						id="annualIncome"
 						required
-						bind:value={annualIncome}
+						bind:value={$calcInput.annualIncome}
 					/>
 				</form>
 				<CreateRates />
