@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { calcInput } from '$lib/stores/calc-input-store';
-	import { collectibleIncome, specificDeductions } from '$lib/stores/derived-values-store';
+	import { collectibleIncome, deductions, specificDeductions } from '$lib/stores/derived-values-store';
 	import { typeToRates } from '$lib/stores/rates-store';
 	import { sumTax } from '$lib/types/Rate';
 	import { Card, Chart, Tooltip } from 'flowbite-svelte';
@@ -192,12 +192,28 @@
 			</div>
 			<div class="flex">
 				<dl>
+					<dt
+						id="deductions"
+						class="flex gap-1 pb-1 text-base font-normal text-gray-500 dark:text-gray-400"
+					>
+						<span>Deduções à Coleta</span>
+						<QuestionCircleSolid />
+					</dt>
+					<Tooltip>Soma de todas as deduções por dependentes, despesas e regimes especiais</Tooltip>
+					<dd class="text-l font-bold leading-none text-gray-900 dark:text-white md:text-2xl">
+						{`${$deductions.toFixed(2)}€`}
+					</dd>
+				</dl>
+			</div>
+			<div class="flex">
+				<dl>
 					<dt class="flex gap-1 pb-1 text-base font-normal text-gray-500 dark:text-gray-400">
 						<span>Rendimento à Coleta</span>
 						<QuestionCircleSolid />
 					</dt>
 					<Tooltip
-						>Parte do salario sujeito a IRS = Salário Bruto Anual - Deduções Específicas</Tooltip
+						>Parte do salario sujeito a IRS = Salário Bruto Anual - Deduções Específicas - Deduções
+						à Coleta</Tooltip
 					>
 					<dd class="text-l font-bold leading-none text-gray-900 dark:text-white md:text-2xl">
 						{`${$collectibleIncome.toFixed(2)}€`}

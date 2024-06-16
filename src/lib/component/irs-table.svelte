@@ -7,7 +7,7 @@
 		getAvailableRates,
 		typeToRates
 	} from '$lib/stores/rates-store';
-	import { Rate, sumTax } from '$lib/types/Rate';
+	import { sumTax } from '$lib/types/Rate';
 	import {
 		Button,
 		Select,

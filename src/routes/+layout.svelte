@@ -1,5 +1,5 @@
 <script>
-	import { DarkMode, Footer, FooterCopyright, FooterIcon, Tooltip } from 'flowbite-svelte';
+	import { DarkMode, Footer, FooterIcon, Tooltip } from 'flowbite-svelte';
 	import { GithubSolid, MailBoxSolid } from 'flowbite-svelte-icons';
 	import '../app.css';
 </script>
