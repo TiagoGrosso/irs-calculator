@@ -1,11 +1,13 @@
 import type { CalcInput } from '$lib/types/CalcInput';
-import { A } from 'flowbite-svelte';
+import { ExpenseType } from '$lib/types/Expenses';
 import { writable } from 'svelte/store';
 
 export const calcInput = writable<CalcInput>({
 	annualIncome: 15000,
 	selected: ['IRS 2025 (Pré Alteração)', 'IRS 2025 (Pós Alteração)'],
-	dependents: []
+	dependents: [],
+	expenses: Object.values(ExpenseType).map((type) => ({ type, amount: 0 })),
+	otherDeductions: 0
 });
 
 export function deleteDependent(index: number) {

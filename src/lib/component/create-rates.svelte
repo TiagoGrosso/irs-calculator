@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { addRate, getAvailableRates, typeToRates, userRates } from '$lib/stores/rates-store';
+	import { addRate, userRates } from '$lib/stores/rates-store';
 	import type { RateData } from '$lib/types/Rate';
 	import {
 		Alert,
 		Button,
 		Input,
 		Modal,
+		NumberInput,
 		Table,
 		TableBody,
 		TableBodyCell,
@@ -113,8 +114,7 @@
 					<TableBodyCell class="px-1 md:px-4">
 						<span class="inline-flex items-center md:pe-0">
 							<span class="min-w-1/3 inline-flex">
-								<Input
-									type="number"
+								<NumberInput
 									class="rounded-none rounded-s-lg"
 									value={getFrom(newRates, i)}
 									disabled
@@ -146,8 +146,7 @@
 					</TableBodyCell>
 					<TableBodyCell class="px-0 md:px-6">
 						<span class="inline-flex">
-							<Input
-								type="number"
+							<NumberInput
 								min="0"
 								max="100"
 								class="rounded-none rounded-s-lg"

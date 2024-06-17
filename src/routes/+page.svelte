@@ -1,4 +1,6 @@
 <script lang="ts">
+	import CreateRates from '$lib/component/create-rates.svelte';
+	import DeductionsInput from '$lib/component/inputs/deductions-input.svelte';
 	import DependentsInput from '$lib/component/inputs/dependents-input.svelte';
 	import SalaryInput from '$lib/component/inputs/salary-input.svelte';
 	import IrsChart from '$lib/component/irs-chart.svelte';
@@ -10,8 +12,8 @@
 	<title>Calculadora IRS</title>
 </svelte:head>
 
-<div class="mx-auto max-w-2xl py-10 py-8">
-	<h1 class="text-4xl font-bold tracking-tight text-black dark:text-white sm:text-6xl text-center my-8">
+<div class="mx-auto flex max-w-2xl flex-col gap-6 py-10 py-8">
+	<h1 class="text-center text-4xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">
 		Calculadora de IRS Anual
 	</h1>
 	<Accordion>
@@ -19,11 +21,16 @@
 			<span slot="header">Informações Base</span>
 			<SalaryInput />
 		</AccordionItem>
-		<AccordionItem >
+		<AccordionItem>
 			<span slot="header">Dependentes</span>
 			<DependentsInput />
 		</AccordionItem>
+		<AccordionItem>
+			<span slot="header">Deduções</span>
+			<DeductionsInput />
+		</AccordionItem>
 	</Accordion>
+	<CreateRates />
 </div>
 
 <div class="flex flex-col gap-5">

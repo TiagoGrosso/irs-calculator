@@ -1,5 +1,9 @@
+import type { Expense } from './Expenses';
+
 export type CalcInput = {
 	annualIncome: number;
 	selected: string[];
-	dependents: number[]
+	dependents: number[];
+	expenses: Expense[];
+	otherDeductions: number;
 };

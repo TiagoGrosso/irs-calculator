@@ -1,6 +1,10 @@
 <script lang="ts">
 	import { calcInput } from '$lib/stores/calc-input-store';
-	import { collectibleIncome, deductions, specificDeductions } from '$lib/stores/derived-values-store';
+	import {
+		collectibleIncome,
+		deductions,
+		specificDeductions
+	} from '$lib/stores/derived-values-store';
 	import { typeToRates } from '$lib/stores/rates-store';
 	import { sumTax } from '$lib/types/Rate';
 	import { Card, Chart, Tooltip } from 'flowbite-svelte';

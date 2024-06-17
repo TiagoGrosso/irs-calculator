@@ -10,9 +10,16 @@ export const dependentDeductions = derived(calcInput, ($calcInput) =>
 	calculateDependentDeductions($calcInput.dependents)
 );
 
+export const expenseDeductions = derived(calcInput, ($calcInput) =>
+	$calcInput.expenses.map((e) => e.type.calcDeductions(e.amount ?? 0)).reduce((a, b) => a + b)
+);
+
+export const otherDeductions = derived(calcInput, ($calcInput) => $calcInput.otherDeductions ?? 0);
+
 export const deductions = derived(
-	dependentDeductions,
-	($dependentDeductions) => $dependentDeductions
+	[dependentDeductions, expenseDeductions, otherDeductions],
+	([$dependentDeductions, $expenseDeductions, $otherDeductions]) =>
+		$dependentDeductions + $expenseDeductions + $otherDeductions
 );
 
 export const collectibleIncome = derived(

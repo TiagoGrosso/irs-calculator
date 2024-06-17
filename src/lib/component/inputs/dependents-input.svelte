@@ -23,9 +23,11 @@
 	</div>
 
 	<div class="mt-3">
-		<span class="inline-flex align-middle items-center">
+		<span class="inline-flex items-center align-middle">
 			<Badge large color="green">Deduções por dependentes: {$dependentDeductions}€</Badge>
-			<a href="https://www.santander.pt/salto/despesas-dedutiveis-irs" target="_blank"><QuestionCircleSolid /></a>
+			<a href="https://www.santander.pt/salto/despesas-dedutiveis-irs" target="_blank"
+				><QuestionCircleSolid /></a
+			>
 		</span>
 		<Tooltip>Clica no '?' para mais informação sobre este cálculo</Tooltip>
 	</div>
