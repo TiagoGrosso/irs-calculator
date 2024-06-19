@@ -13,7 +13,7 @@
 	<title>Calculadora IRS</title>
 </svelte:head>
 
-<div class="mx-auto flex max-w-2xl flex-col gap-6 py-10 py-8">
+<div class="mx-auto flex max-w-2xl flex-col gap-6 py-8">
 	<h1 class="text-center text-4xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">
 		Calculadora de IRS Anual
 	</h1>

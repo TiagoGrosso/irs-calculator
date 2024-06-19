@@ -14,7 +14,7 @@
 	<div class="mx-auto max-w-screen-xl text-center">
 		<span class="text-xs dark:text-white">Built as open source in 2024 by Tiagop</span>
 		<div class="mt-3 flex justify-center space-x-6 rtl:space-x-reverse">
-			<FooterIcon href="https://github.com/TiagoGrosso/irs-calculator">
+			<FooterIcon href="https://github.com/TiagoGrosso/irs-calculator" target="_blank">
 				<GithubSolid
 					class="h-5 w-5 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white"
 				/>
