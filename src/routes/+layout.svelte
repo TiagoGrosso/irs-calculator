@@ -1,8 +1,25 @@
 <script>
 	import { DarkMode, Footer, FooterIcon, Tooltip } from 'flowbite-svelte';
 	import { GithubSolid, MailBoxSolid } from 'flowbite-svelte-icons';
+	import { page } from '$app/stores';
+
 	import '../app.css';
+	import { MetaTags } from 'svelte-meta-tags';
 </script>
+
+<MetaTags
+	openGraph={{
+		url: `${$page.url.protocol}//${$page.url.host}`,
+		type: 'website',
+		images: [
+			{
+				url: `${$page.url.protocol}//${$page.url.host}/thumbnail.png`
+			}
+		],
+		title: 'Calculadora IRS',
+		description: 'Calculadora de IRS Anual'
+	}}
+/>
 
 <header>
 	<DarkMode />
