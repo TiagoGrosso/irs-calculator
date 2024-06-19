@@ -20,7 +20,7 @@
 		],
 		title: 'Calculadora IRS',
 		description:
-			'Calculadora de IRS AnualUma aplicação web simples para calcular o teu IRS (em Portugal) e comparar alteração no imposto. Nao tem em conta as deduções, regimes especiais em que possas estar inserido ou outras fontes de rendimento.'
+			'Uma aplicação web simples para calcular o teu IRS (em Portugal) e comparar alteração no imposto.'
 	}}
 />
 
