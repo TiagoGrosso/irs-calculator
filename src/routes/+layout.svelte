@@ -5,6 +5,7 @@
 
 	import '../app.css';
 	import { MetaTags } from 'svelte-meta-tags';
+	import { kMaxLength } from 'buffer';
 </script>
 
 <MetaTags
@@ -21,6 +22,13 @@
 		title: 'Calculadora IRS',
 		description:
 			'Uma aplicação web simples para calcular o teu IRS (em Portugal) e comparar alteração no imposto.'
+	}}
+	twitter={{
+		cardType: 'summary_large_image',
+		title: 'Calculadora IRS',
+		site:  `${$page.url.protocol}//${$page.url.host}`,
+		description: 'Uma aplicação web simples para calcular o teu IRS (em Portugal) e comparar alteração no imposto.',
+		image: `${$page.url.protocol}//${$page.url.host}/thumbnail.png`
 	}}
 />
 
