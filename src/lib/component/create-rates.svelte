@@ -174,7 +174,7 @@
 	<div class="flex w-full justify-center">
 		<Button class="!p-2" on:click={() => newRate()}><PlusOutline class="h-6 w-6" /></Button>
 	</div>
-	<Button on:click={() => saveRateAndClear()} disabled={validationResult}>Criar Tabela</Button>
+	<Button on:click={() => saveRateAndClear()} disabled={validationResult != undefined}>Criar Tabela</Button>
 
 	{#if validationResult}
 		<Alert class="flex justify-center">

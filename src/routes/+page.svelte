@@ -3,6 +3,7 @@
 	import DeductionsInput from '$lib/component/inputs/deductions-input.svelte';
 	import DependentsInput from '$lib/component/inputs/dependents-input.svelte';
 	import SalaryInput from '$lib/component/inputs/salary-input.svelte';
+	import SpecialRegimes from '$lib/component/inputs/special-regimes.svelte';
 	import IrsChart from '$lib/component/irs-chart.svelte';
 	import IrsTable from '$lib/component/irs-table.svelte';
 	import { Accordion, AccordionItem } from 'flowbite-svelte';
@@ -28,6 +29,10 @@
 		<AccordionItem>
 			<span slot="header">Deduções</span>
 			<DeductionsInput />
+		</AccordionItem>
+		<AccordionItem>
+			<span slot="header">Regimes Especiais</span>
+			<SpecialRegimes />
 		</AccordionItem>
 	</Accordion>
 	<CreateRates />

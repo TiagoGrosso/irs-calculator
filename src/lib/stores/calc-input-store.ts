@@ -7,7 +7,10 @@ export const calcInput = writable<CalcInput>({
 	selected: ['IRS 2025 (Pré Alteração)', 'IRS 2025 (Pós Alteração)'],
 	dependents: [],
 	expenses: Object.values(ExpenseType).map((type) => ({ type, amount: 0 })),
-	otherDeductions: 0
+	otherDeductions: 0,
+	specialRegimes: {
+		incapacity: false
+	}
 });
 
 export function deleteDependent(index: number) {

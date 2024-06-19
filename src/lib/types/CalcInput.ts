@@ -6,4 +6,7 @@ export type CalcInput = {
 	dependents: number[];
 	expenses: Expense[];
 	otherDeductions: number;
+	specialRegimes: {
+		incapacity: boolean
+	}
 };

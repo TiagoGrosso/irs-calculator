@@ -14,12 +14,16 @@ export const expenseDeductions = derived(calcInput, ($calcInput) =>
 	$calcInput.expenses.map((e) => e.type.calcDeductions(e.amount ?? 0)).reduce((a, b) => a + b)
 );
 
+export const incapacityDeductions = derived(calcInput, ($calcInput) =>
+	$calcInput.specialRegimes.incapacity ? Math.min(2500, $calcInput.annualIncome * 0.15) : 0
+);
+
 export const otherDeductions = derived(calcInput, ($calcInput) => $calcInput.otherDeductions ?? 0);
 
 export const deductions = derived(
-	[dependentDeductions, expenseDeductions, otherDeductions],
-	([$dependentDeductions, $expenseDeductions, $otherDeductions]) =>
-		$dependentDeductions + $expenseDeductions + $otherDeductions
+	[dependentDeductions, expenseDeductions, otherDeductions, incapacityDeductions],
+	([$dependentDeductions, $expenseDeductions, $incapacityDeductions, $otherDeductions]) =>
+		$dependentDeductions + $expenseDeductions + $incapacityDeductions + $otherDeductions
 );
 
 export const collectibleIncome = derived(
