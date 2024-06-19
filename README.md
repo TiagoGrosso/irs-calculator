@@ -5,12 +5,12 @@
 
 ## EN
 
-A simple webapp to calculate your yearly income tax (in Portugal) and compare tax changes. It does not take into account your deductions, special regimes you might be included in or other sources of income.
+A simple webapp to calculate your yearly income tax (in Portugal) and compare tax changes. Might not take into account all your deductions and special regimes you might be included in or other sources of income.
 
 The idea of this app is to get a rough idea of how changes in the tax brackets can affect net income.
 
 ## PT
 
-Uma aplicação web simples para calcular o teu IRS (em Portugal) e comparar alteração no imposto. Nao tem em conta as deduções, regimes especiais em que possas estar inserido ou outras fontes de rendimento.
+Uma aplicação web simples para calcular o teu IRS (em Portugal) e comparar alteração no imposto. Pode não ter em conta todas as deduções e regimes especiais em que possas estar inserido ou outras fontes de rendimento.
 
 A ideia da app é apenas de dar uma ideia geral de como alterações nos escalões podem afetar o salário líquido.
