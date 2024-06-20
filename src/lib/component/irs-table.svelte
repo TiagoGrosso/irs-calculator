@@ -49,7 +49,7 @@
 			<TableHead>
 				<TableHeadCell>Escalão</TableHeadCell>
 				<TableHeadCell>Taxa Marginal</TableHeadCell>
-				<TableHeadCell>Parcela a abater</TableHeadCell>
+				<TableHeadCell>Imposto neste escalão</TableHeadCell>
 			</TableHead>
 			<TableBody tableBodyClass="divide-y">
 				{#each rates as rate}
